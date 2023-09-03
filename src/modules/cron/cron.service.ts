@@ -16,7 +16,6 @@ export class CronService {
         const lastBlock: number = await this.ethereumService.getLastBlock();
 
         for (let i: number = firstBlock; i <= lastBlock; i++) {
-            console.log(i)
             const transactions = await this.ethereumService.getBlockTransactions(i);
             await this.transactionService.saveTransactions(transactions);
         }
